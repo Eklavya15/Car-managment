@@ -14,12 +14,12 @@ users_db = {
 
 # Home page route
 @app.route('/')
-def index():
-    return render_template('index.html')
+def index2():
+    return render_template('index2.html')
 
 # Sign Up route
-@app.route('/signup.html', methods=['GET', 'POST'])
-def signup():
+@app.route('/signup2.html', methods=['GET', 'POST'])
+def signup2():
     if request.method == 'POST':
         # Get form data
         name = request.form['name']
@@ -38,10 +38,10 @@ def signup():
         users_db[email] = {'name': name, 'password': password}
         return redirect(url_for('login'))
 
-    return render_template('signup.html')
+    return render_template('signup2.html')
 
 # Login route
-@app.route('/login.html', methods=['GET', 'POST'])
+@app.route('/login2.html', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         # Get form data
@@ -54,7 +54,7 @@ def login():
         else:
             return "Invalid credentials. Please try again."
 
-    return render_template('login.html')
+    return render_template('login2.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
